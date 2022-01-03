@@ -3,7 +3,10 @@ const { Schema } = mongoose;
 mongoose.connect('mongodb://localhost:27017/fruitsDB');
 
 const fruitSchema = new Schema({
-  name:String,
+  name:{
+    type:String,
+    required:[true, "Enter fruit name!"]
+  },
   rating:Number,
   review:String
 })
@@ -11,12 +14,11 @@ const fruitSchema = new Schema({
 const Fruit = mongoose.model("Fruit", fruitSchema)
 
 const fruit = new Fruit({
-  name:"Apple",
-  rating:10,
-  review:"Pretty solid as a fruit!"
+  rating:1,
+  review:"grapes are soar!"
 })
 
-// fruit.save();
+fruit.save();
 
 const personSchema = new Schema({
   name:String,
@@ -32,23 +34,23 @@ const person = new Person({
 
 // person.save();
 
-const mango = new Fruit({
-  name:"Mango",
-  rating:9,
-  review:"Too good for me!"
-})
+// const mango = new Fruit({
+//   name:"Mango",
+//   rating:9,
+//   review:"Too good for me!"
+// })
 
-const banana = new Fruit({
-  name:"Banana",
-  rating:9.5,
-  review:"healthy"
-})
+// const banana = new Fruit({
+//   name:"Banana",
+//   rating:9.5,
+//   review:"healthy"
+// })
 
-const strawberry = new Fruit({
-  name:"Strawberry",
-  rating:9,
-  review:"My favorite"
-})
+// const strawberry = new Fruit({
+//   name:"Strawberry",
+//   rating:9,
+//   review:"My favorite"
+// })
 
 // Fruit.insertMany([mango,banana,strawberry],function(err){
 //   if(err){
@@ -58,11 +60,11 @@ const strawberry = new Fruit({
 //   }
 // })
 
-Fruit.find(function(err,fruits){
-  if(err){
-    console.log("Error occurred!")
-  }else{
-    mongoose.connection.close();
-    fruits.forEach(fruits => console.log(fruits.name))
-  }
-})
+// Fruit.find(function(err,fruits){
+//   if(err){
+//     console.log("Error occurred!")
+//   }else{
+//     mongoose.connection.close();
+//     fruits.forEach(fruits => console.log(fruits.name))
+//   }
+// })
