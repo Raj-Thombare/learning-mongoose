@@ -50,10 +50,19 @@ const strawberry = new Fruit({
   review:"My favorite"
 })
 
-Fruit.insertMany([mango,banana,strawberry],function(err){
+// Fruit.insertMany([mango,banana,strawberry],function(err){
+//   if(err){
+//     console.log("Error occurred!")
+//   }else{
+//     console.log("Successfully saved all the fruits to fruitsDB!")
+//   }
+// })
+
+Fruit.find(function(err,fruits){
   if(err){
     console.log("Error occurred!")
   }else{
-    console.log("Successfully saved all the fruits to fruitsDB!")
+    mongoose.connection.close();
+    fruits.forEach(fruits => console.log(fruits.name))
   }
 })
