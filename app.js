@@ -18,13 +18,21 @@ const fruit = new Fruit({
   review:"grapes are soar!"
 })
 
-Fruit.updateOne({_id:"61d34eea281ae115bc6bbf10"},{name:"Peach"}, function(err){
+Fruit.deleteOne({_id:"61d34eea281ae115bc6bbf10"},function(err){
   if(err){
-    console.log("Error Ocurred!")
+    console.log("Error ocurred!")
   }else{
-    console.log("Successfully updated!")
+    console.log("Deleted successfully!")
   }
 })
+
+// Fruit.updateOne({_id:"61d34eea281ae115bc6bbf10"},{name:"Peach"}, function(err){
+//   if(err){
+//     console.log("Error Ocurred!")
+//   }else{
+//     console.log("Successfully updated!")
+//   }
+// })
 
 fruit.save();
 
