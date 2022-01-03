@@ -18,6 +18,14 @@ const fruit = new Fruit({
   review:"grapes are soar!"
 })
 
+Fruit.updateOne({_id:"61d34eea281ae115bc6bbf10"},{name:"Peach"}, function(err){
+  if(err){
+    console.log("Error Ocurred!")
+  }else{
+    console.log("Successfully updated!")
+  }
+})
+
 fruit.save();
 
 const personSchema = new Schema({
