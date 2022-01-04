@@ -36,13 +36,13 @@ const Fruit = mongoose.model("Fruit", fruitSchema)
 
 // fruit.save();
 
-const pineapple = new Fruit({
-  name:"pineapple",
-  rating:10,
-  review:"Too yummy!"
+const guava = new Fruit({
+  name:"guava",
+  rating:7.5,
+  review:"mediocre in taste!"
 })
 
-pineapple.save();
+guava.save();
 
 const personSchema = new Schema({
   name:String,
@@ -52,14 +52,21 @@ const personSchema = new Schema({
 
 const Person = mongoose.model("Person", personSchema)
 
-const person = new Person({
-  name:"Shardul",
-  age:27,
-  favoriteFruit:pineapple
+// const person = new Person({
+//   name:"Shardul",
+//   age:27,
+//   favoriteFruit:pineapple
+// })
+
+// person.save();
+
+Person.updateOne({_id:"61d34256ac2624cfd2f3ef7a"},{favoriteFruit:guava},function(err){
+  if(err){
+    console.log("Error Ocurred!")
+  }else{
+    console.log("Successfully updated!")
+  }
 })
-
-person.save();
-
 // const mango = new Fruit({
 //   name:"Mango",
 //   rating:9,
